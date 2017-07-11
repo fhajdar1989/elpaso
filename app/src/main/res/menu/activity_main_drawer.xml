@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_onama"
+            android:icon="@drawable/o_nama"
+            android:title="O nama" />
+        <item
+            android:id="@+id/nav_galerija"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Galerija" />
+        <item
+            android:id="@+id/nav_muzika"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Muzika" />
+        <item
+        android:id="@+id/nav_desavanja"
+        android:icon="@drawable/kontakt"
+        android:title="Dešavanja" />
+
+        <item
+            android:id="@+id/nav_kontakt"
+            android:icon="@drawable/desavanja"
+            android:title="Kontakt" />
+        <item
+            android:id="@+id/nav_grupe"
+            android:icon="@drawable/grupe"
+            android:title="Grupe" />
+        <item
+            android:id="@+id/nav_termini"
+            android:icon="@drawable/termini"
+            android:title="Termini" />
+
+    </group>
+
+
+</menu>
