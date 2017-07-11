@@ -1,10 +1,11 @@
 package com.example.user.elpaso;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,9 +19,17 @@ import android.widget.ImageView;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,25 +112,45 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_onama) {
-            // Handnele the camera action
+            if (dialog == null) {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+                LayoutInflater inflater = this.getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.alert_label_editor, null);
+                dialogBuilder.setView(dialogView);
+                dialogBuilder.setTitle("O nama");
+                dialogBuilder.setPositiveButton("NATRAG", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
 
+                SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.map);
+                mapFragment.getMapAsync(this);
+
+                dialog = dialogBuilder.create();
+            }
+            dialog.show();
         } else if (id == R.id.nav_muzika) {
 
         } else if (id == R.id.nav_galerija) {
 
-        } else if (id == R.id.nav_kontakt) {
-
         } else if (id == R.id.nav_desavanja) {
-
-        }
-        else if (id == R.id.nav_grupe) {
-
-        }
-        else if (id == R.id.nav_termini) {
-
+            startActivity(new Intent(this, EventsActivity.class));
+        } else if (id == R.id.nav_grupe) {
+            startActivity(new Intent(this, GroupsActivity.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        LatLng sydney = new LatLng(43.8561783, 18.3771591);
+        googleMap.addMarker(new MarkerOptions().position(sydney)
+                .title("El Paso"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 14f));
     }
 }

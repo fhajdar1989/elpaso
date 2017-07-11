@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:text="Zdravo, Ja sam El Paso, Društveni Salsa Klub. Moj glavni domaćin Zoran Matić godinama moje goste uči da plešu, i čini mi se da to radi vrlo uspješno jer iz kuće svi izlaze s osmjehom na licu. Doduše, neki neće odmah da idu pa ostanu i po dva časa, ali meni je to ok, ja sam otvoren za sve. Otkako postojim, stekao sam mnogo prijatelja, tu vam ne računam članove, jer oni mi nisu prijatelji, oni su mi porodica. Vrlo rado me vode svuda sa sobom, pa tako skupa idemo na izlete, planinarimo, idemo na more, na salsa kongrese u regiji, a i šire. Moj domaćin kaže da mu je ples promjenio život, ali da ga najviše ispunjava i raduje naš pozitivan duh prijateljstva i druženja. Ja se u potpunosti slažem s njim. Nadam se da ćete me posjetiti jednom, vrlo rado bih vas ugostio i upoznao s mojom porodicom.
+Puno poljubaca svim znatiželjnicima ;) čekam Vas u Drinskoj ulici!
+El Paso"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/map"
+              android:name="com.google.android.gms.maps.SupportMapFragment"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.example.mapwithmarker.MapsMarkerActivity" />
+
+</LinearLayout>

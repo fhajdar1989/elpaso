@@ -15,24 +15,12 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Muzika" />
         <item
-        android:id="@+id/nav_desavanja"
-        android:icon="@drawable/kontakt"
-        android:title="Dešavanja" />
-
-        <item
-            android:id="@+id/nav_kontakt"
-            android:icon="@drawable/desavanja"
-            android:title="Kontakt" />
+            android:id="@+id/nav_desavanja"
+            android:icon="@drawable/kontakt"
+            android:title="Dešavanja" />
         <item
             android:id="@+id/nav_grupe"
             android:icon="@drawable/grupe"
             android:title="Grupe" />
-        <item
-            android:id="@+id/nav_termini"
-            android:icon="@drawable/termini"
-            android:title="Termini" />
-
     </group>
-
-
 </menu>
