@@ -11,7 +11,7 @@ import retrofit2.http.Headers;
  */
 
 public interface Api {
-    @Headers("Authorization: OAuth EAAbTsoQiiocBABWr5GKQ8HVsgKTUHlGd3tDXDnCs73uK18tVCw5kHchJyNuZCCniQSvZAAcakGhqx7mdumZADF61DqMcdOipt0nwEPKa9owolI6nNZAop1DtnZBWcDWUKQnp1FCCInE9xQ94CJnXypfAIGu6995AYcoJaS6ZCwREVznY02OYNM1RQ9MCJYpw0ZD")
+    @Headers("Authorization: OAuth EAAbTsoQiiocBAGy7W33dsLktijW8DHyM6LZBIdk0xdLkzdsUKq9y5JSzY0j6BXxfGZAoMh77OC2HAQO5F2F6k5AiiJj52XhUNf1AnsGlK3WsAK5EYZADcJExy2uOPWYFFYRw6jceIHU1oks9U5LWZAZCQHsZAw6hoZD")
     @GET("/647034035350714/events")
     Call<Events> getEvents();
 }
