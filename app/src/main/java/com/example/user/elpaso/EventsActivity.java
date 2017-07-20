@@ -109,7 +109,7 @@ public class EventsActivity extends AppCompatActivity {
                     .load("https://graph.facebook.com/" + event.id + "/picture")
                     .into(picture);
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.YYYY");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
             String descriptionText = "";
             if (event.place != null) descriptionText += "Lokacija: " + event.place.name + "\n";
