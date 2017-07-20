@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -58,7 +59,7 @@ public class EventsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Events> call, Throwable t) {
-                t.printStackTrace();
+                Toast.makeText(EventsActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

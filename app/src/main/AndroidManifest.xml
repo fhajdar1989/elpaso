@@ -29,6 +29,16 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAUlV7R5Eo-HSZ_eOnykF5ZjphlV9NbNsQ" />
+            android:value="AIzaSyAUlV7R5Eo-HSZ_eOnykF5ZjphlV9NbNsQ"/>
+
+        <activity android:name=".PhotosActivity">
+        </activity>
+        <activity android:name=".AlbumsActivity">
+        </activity>
+        <activity android:name=".PhotoViewActivity">
+        </activity>
+        <activity android:name=".MusicActivity">
+        </activity>
     </application>
+
 </manifest>

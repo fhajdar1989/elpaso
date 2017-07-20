@@ -23,10 +23,31 @@ public class GroupsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Grupe");
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.vp_groups);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_groups);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tl_groups);
 
         tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
+        {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab)
+            {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab)
+            {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab)
+            {
+
+            }
+        });
 
         GroupsAdapter groupsAdapter = new GroupsAdapter();
         viewPager.setAdapter(groupsAdapter);
@@ -60,11 +81,11 @@ public class GroupsActivity extends AppCompatActivity {
 
             TextView text = (TextView) view.findViewById(R.id.tv_text);
             if (position == 0) {
-                text.setText("Lala");
+                text.setText("Početna grupa je grupa koji se prvi put susreću sa salom i uče tek osnovne korake salse.\n\nTermini trening su:\nPonedjeljak: 20:00 do 21:00\nSrijeda: 20:00 do 21:00");
             } else if (position == 1) {
-                text.setText("Lalajfsadkl f");
+                text.setText("Srednja grupa je grupa koji su prošli osnovne korake i spremni su da počnu učiti naprednije korake.\n\nTermini trening su:\nUtorak: 20:00 do 21:00\nČetvrtak: 20:00 do 21:00");
             } else if (position == 2) {
-                text.setText("Lalajfkj sdlfj laksdjfjsdj fsdlkj f\njfkljsd fkl\njf lasd");
+                text.setText("Napredna grupa je grupa zamišljena za plesače koji žele učiti zahtjevnije figure i kombinacije i dodatno unaprijediti svoj ples.\n\nTermini trening su:\nPonedjeljak: 19:00 do 20:00\nSrijeda: 19:00 do 20:00");
             }
 
             view.setTag(position);

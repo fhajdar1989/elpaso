@@ -25,6 +25,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
@@ -49,22 +51,73 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         SliderLayout slider= (SliderLayout) findViewById(R.id.slider);
-       // slider.addSlider();
-        BaseSliderView slika = new BaseSliderView(this) {
+
+        final Transformation transformation = new RoundedCornersTransformation(30, 30);
+
+        slider.addSlider(new BaseSliderView(this) {
             @Override
             public View getView() {
                 ImageView sl=new ImageView(MainActivity.this);
-                sl.setImageResource(R.mipmap.slika1);
+                Picasso.with(MainActivity.this)
+                        .load("http://photos2.meetupstatic.com/photos/event/1/0/8/4/600_458044228.jpeg")
+                        .transform(transformation)
+                        .resize(1000, 700)
+                        .into(sl);
                 return sl ;
             }
-        };
+        });
 
-        slider.addSlider(slika);
-        slider.addSlider(slika);
-        slider.addSlider(slika);
-        slider.addSlider(slika);
-        slider.addSlider(slika);
-        slider.addSlider(slika);
+        slider.addSlider(new BaseSliderView(this) {
+            @Override
+            public View getView() {
+                ImageView sl=new ImageView(MainActivity.this);
+                Picasso.with(MainActivity.this)
+                        .load("http://www.danceplace.com/index/image/EL+Paso+Latin+American+Dance+Studio-Annandale-Australia/4032.gif")
+                        .transform(transformation)
+                        .resize(1000, 700)
+                        .into(sl);
+                return sl ;
+            }
+        });
+
+        slider.addSlider(new BaseSliderView(this) {
+            @Override
+            public View getView() {
+                ImageView sl=new ImageView(MainActivity.this);
+                Picasso.with(MainActivity.this)
+                        .load("http://copingmag.com/cwc/images/ncsd_gallery/2013/2434/71-2-el-paso-tx__photo_450_450.jpg")
+                        .transform(transformation)
+                        .resize(1000, 700)
+                        .into(sl);
+                return sl ;
+            }
+        });
+
+        slider.addSlider(new BaseSliderView(this) {
+            @Override
+            public View getView() {
+                ImageView sl=new ImageView(MainActivity.this);
+                Picasso.with(MainActivity.this)
+                        .load("https://i.ytimg.com/vi/yD7Tr6p8HQo/hqdefault.jpg")
+                        .transform(transformation)
+                        .resize(1000, 700)
+                        .into(sl);
+                return sl ;
+            }
+        });
+
+        slider.addSlider(new BaseSliderView(this) {
+            @Override
+            public View getView() {
+                ImageView sl=new ImageView(MainActivity.this);
+                Picasso.with(MainActivity.this)
+                        .load("https://i.ytimg.com/vi/BN5nXotHZjM/maxresdefault.jpg")
+                        .transform(transformation)
+                        .resize(1000, 700)
+                        .into(sl);
+                return sl ;
+            }
+        });
 
     }
 
@@ -133,9 +186,9 @@ public class MainActivity extends AppCompatActivity
             }
             dialog.show();
         } else if (id == R.id.nav_muzika) {
-
+            startActivity(new Intent(this, MusicActivity.class));
         } else if (id == R.id.nav_galerija) {
-
+            startActivity(new Intent(this, AlbumsActivity.class));
         } else if (id == R.id.nav_desavanja) {
             startActivity(new Intent(this, EventsActivity.class));
         } else if (id == R.id.nav_grupe) {
